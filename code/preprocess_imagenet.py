@@ -109,37 +109,37 @@ def main():
                                   transforms.CenterCrop(g.IMG_SIZE),
                                   transforms.ToTensor()])
         
-        # Iterate over each distortion & severity
-        
-        for distortion_name in distortions:
-            for severity in range(1, 6):
-                print('Processing {} {}'.format(distortion_name, severity))
-                # Data loading code
-                valdir = os.path.join(g.IMAGENET_PATH, distortion_name, severity)
+    # Iterate over each distortion & severity
+    
+    for distortion_name in distortions:
+        for severity in range(1, 6):
+            print('Processing {} {}'.format(distortion_name, severity))
+            # Data loading code
+            valdir = os.path.join(g.IMAGENET_PATH, distortion_name, severity)
 
-                val_loader = MyDataLoader(root = valdir,
-                                        transform = default_transforms,
-                                        shuffle = False,
-                                        sampler = None)
+            val_loader = MyDataLoader(root = valdir,
+                                    transform = default_transforms,
+                                    shuffle = False,
+                                    sampler = None)
 
-                print("=> Succesfully created all data loaders.")
-                print("")
+            print("=> Succesfully created all data loaders.")
+            print("")
 
-                #############################################################
-                #         PREPROCESS DATASETS
-                #############################################################
+            #############################################################
+            #         PREPROCESS DATASETS
+            #############################################################
 
-                # print("Preprocessing validation data:")
-                # preprocess(data_loader = val_loader,
-                #            input_transforms = [style_transfer],
-                #            sourcedir = valdir,
-                #            targetdir = os.path.join(g.STYLIZED_IMAGENET_PATH, "val/"))
+            # print("Preprocessing validation data:")
+            # preprocess(data_loader = val_loader,
+            #            input_transforms = [style_transfer],
+            #            sourcedir = valdir,
+            #            targetdir = os.path.join(g.STYLIZED_IMAGENET_PATH, "val/"))
 
-                print("Preprocessing training data:")
-                preprocess(data_loader = val_loader,
-                        input_transforms = [style_transfer],
-                        sourcedir = traindir,
-                        targetdir = os.path.join(g.STYLIZED_IMAGENET_PATH, distortion_name, severity))
+            print("Preprocessing training data:")
+            preprocess(data_loader = val_loader,
+                    input_transforms = [style_transfer],
+                    sourcedir = traindir,
+                    targetdir = os.path.join(g.STYLIZED_IMAGENET_PATH, distortion_name, severity))
 
 
 
