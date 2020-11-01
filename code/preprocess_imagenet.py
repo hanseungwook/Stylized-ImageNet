@@ -138,7 +138,7 @@ def main():
             print("Preprocessing training data:")
             preprocess(data_loader = val_loader,
                     input_transforms = [style_transfer],
-                    sourcedir = traindir,
+                    sourcedir = valdir,
                     targetdir = os.path.join(g.STYLIZED_IMAGENET_PATH, distortion_name, str(severity)))
 
 
