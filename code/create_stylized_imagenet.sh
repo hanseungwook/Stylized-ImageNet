@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# Set device
+export CUDA_VISIBLE_DEVICES=1
+
 # download models
 models/download_models.sh
 
