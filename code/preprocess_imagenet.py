@@ -115,7 +115,7 @@ def main():
         for severity in range(1, 6):
             print('Processing {} {}'.format(distortion_name, severity))
             # Data loading code
-            valdir = os.path.join(g.IMAGENET_PATH, distortion_name, severity)
+            valdir = os.path.join(g.IMAGENET_PATH, distortion_name, str(severity))
 
             val_loader = MyDataLoader(root = valdir,
                                     transform = default_transforms,
@@ -139,7 +139,7 @@ def main():
             preprocess(data_loader = val_loader,
                     input_transforms = [style_transfer],
                     sourcedir = traindir,
-                    targetdir = os.path.join(g.STYLIZED_IMAGENET_PATH, distortion_name, severity))
+                    targetdir = os.path.join(g.STYLIZED_IMAGENET_PATH, distortion_name, str(severity)))
 
 
 
