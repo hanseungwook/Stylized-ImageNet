@@ -34,8 +34,8 @@ ADAIN_DECODER_PATH = pjoin(ADAIN_MODEL_DIR, "decoder.pth")
 assert os.path.exists(ADAIN_VGG_PATH)
 assert os.path.exists(ADAIN_DECODER_PATH)
 assert os.path.exists(IMAGENET_PATH)
-assert os.path.exists(pjoin(IMAGENET_PATH, "train/"))
-assert os.path.exists(pjoin(IMAGENET_PATH, "val/"))
+# assert os.path.exists(pjoin(IMAGENET_PATH, "train/"))
+# assert os.path.exists(pjoin(IMAGENET_PATH, "val/"))
 
 
 def get_default_adain_args():
